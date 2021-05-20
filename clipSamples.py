@@ -17,6 +17,8 @@ class ClipImage:
         self.r = df.iloc[:,1]
         self.c = df.iloc[:,2]
         self.entity = df.iloc[:,0]
+        self.Ttype = df.iloc[:,3]
+        print(df.iloc[:,3])
         self.band_shape = self.band.shape
         self.band_dtype = self.band.dtype
         self.clipped_images = []
@@ -58,7 +60,7 @@ class ClipImage:
 
             # Save or append into a set
             if save_mode:
-                filename = prefix + f"{i+1}_{self.entity[i]}_b_{self.bNo}.tif"
+                filename = prefix + f"{self.Ttype[i]}_{self.entity[i]}_{i+1}_b_{self.bNo}.tif"
 
                 with rio.open(filename, 'w',
                                 driver='GTiff',
@@ -80,8 +82,8 @@ class ClipImage:
 
 #create entity-row-col dataframe using csv file
 data = pd.read_csv("points.csv")
-data = data[['entity','Row','Col']]
-
+data = data[['entity','Row','Col','type']]
+print(data.head())
 #executing the method created
 path = 'Cropped/Cropped1.tif'
 clipper = ClipImage(image_address=path,df=data,bandNo=2)
