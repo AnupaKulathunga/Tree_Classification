@@ -3,6 +3,7 @@ import pandas as pd
 import rasterio as rio
 import affine
 
+#class to manage image clipping(need image address and entity-row-column dataset,band_no to proceed)
 class ClipImage:
 
     # Get band, band shape, dtype, crs and transform values
@@ -77,9 +78,11 @@ class ClipImage:
             print('Tiles prepared successfully')
             return self.clipped_images
 
+#create entity-row-col dataframe using csv file
 data = pd.read_csv("points.csv")
 data = data[['entity','Row','Col']]
 
+#executing the method created
 path = 'Cropped/Cropped1.tif'
 clipper = ClipImage(image_address=path,df=data,bandNo=2)
 clipper.clip_raster(height=20,
