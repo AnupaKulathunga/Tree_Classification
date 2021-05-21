@@ -86,10 +86,11 @@ print('Preview of the imported dataset\n\n',data.head(),'\n')
 
 #executing the method created
 path = 'Cropped/Cropped1.tif'
-clipper = ClipImage(image_address=path,df=data,bandNo=2)
-clipper.clip_raster(height=20,
-    width=20,
-    buffer=0,
-    save_mode=True,
-    prefix="samples/",
-    pass_empty=False)
+for no in range(1,5):
+    clipper = ClipImage(image_address=path,df=data,bandNo=no)
+    clipper.clip_raster(height=20,
+        width=20,
+        buffer=0,
+        save_mode=True,
+        prefix="samples/",
+        pass_empty=False)
