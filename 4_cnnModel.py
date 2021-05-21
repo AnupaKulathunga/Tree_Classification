@@ -32,7 +32,7 @@ model.compile(optimizer='adam',
 
 model.fit(x_train, y_train,
           batch_size=256,
-          epochs=254,
+          epochs=250,
           validation_split=0.1,
           callbacks=[tensorboard])
 
