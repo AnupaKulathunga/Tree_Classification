@@ -5,7 +5,7 @@ import cv2
 from tqdm import tqdm
 import pickle
 
-DATADIR ="D:\Machine learning\RS model\Git model\Tree_Classification\samples\Categories"
+DATADIR ="samples\Categories"
 numlist=list(range(1,39))
 CATEGORIES = list(map(str,numlist))
 

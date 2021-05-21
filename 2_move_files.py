@@ -12,8 +12,7 @@ for root, subFolders, files in os.walk(srcpath):
         shutil.move(os.path.join(root, file), subFolder)
 
 for n in range(1,10):
-    os.chdir(
-        r"D:\Machine learning\RS model\Git model\Tree_Classification\samples\Categories")
+    os.chdir(r"D:\Machine learning\RS model\Git model\Tree_Classification\samples\Categories")
     try:
         os.rename(f"{n}_",f"{n}")
     except:
